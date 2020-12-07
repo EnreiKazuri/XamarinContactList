@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinContactList.Views.PeoplePage"
+             Title="Contacts"
+             x:Name="peoplePage"
+             Style="{StaticResource ContentPageStyle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding RegisterPageCommand}" Priority="1"/>
+    </ContentPage.ToolbarItems>
+    <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}" Detail="{Binding PhoneNumber}" TextColor="Black" DetailColor="DeepSkyBlue">
+                    <TextCell.ContextActions>
+                        <MenuItem Text="More" Command="{Binding BindingContext.MoreCommand, Source={x:Reference peoplePage}}"/>
+                        <MenuItem Text="Delete" Command="{Binding BindingContext.DeletePersonCommand, Source={x:Reference peoplePage}}" IsDestructive="True"/>
+                    </TextCell.ContextActions>
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

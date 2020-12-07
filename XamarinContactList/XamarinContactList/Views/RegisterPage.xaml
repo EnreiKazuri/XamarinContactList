@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinContactList.Views.RegisterPage"
+             Title="New Contact"
+             Style="{StaticResource ContentPageStyle}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Name}" Placeholder="Name"/>
+            <Entry Text="{Binding PhoneNumber}" Placeholder="Number"/>
+            <Button Command="{Binding AddPersonCommand}" Text="ADD" Style="{StaticResource BlueButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
